@@ -1,7 +1,12 @@
 const loadCatagory = async () => {
-    const res = await fetch(` https://openapi.programming-hero.com/api/news/categories`)
-    const data = await res.json()
-    return data;
+    try {
+        const res = await fetch(` https://openapi.programming-hero.com/api/news/categories`)
+        const data = await res.json()
+        return data;
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
 const setCatagory = async () => {
     const data = await loadCatagory();
