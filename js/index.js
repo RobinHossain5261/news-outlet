@@ -10,7 +10,7 @@ const loadCatagory = async () => {
 }
 
 const displayAllCatagory = catagorys => {
-
+    toggleSpinner(true);
     const catagoryList = document.getElementById("all-catagory");
     catagoryList.textContent = '';
     catagorys.forEach(catagory => {
@@ -46,9 +46,9 @@ const displayCatagoryDetails = allNews => {
         // console.log(news)
         const newsDiv = document.createElement("div");
         newsDiv.innerHTML = `
-        <div class="flex items-center">
+        <div class="flex items-center border mt-5 rounded-lg">
                 <!-- images -->
-            <div class="flex-none w-96 mt-8 ">
+            <div class="flex-none w-96 ">
                 <img src="${news.thumbnail_url}">
             </div>
 
@@ -83,6 +83,7 @@ const displayCatagoryDetails = allNews => {
         catagoryDetails.appendChild(newsDiv);
 
     })
+    toggleSpinner(false);
 }
 
 loadCatagoryDetails('01');
@@ -105,10 +106,23 @@ const displayDetaulsModal = details => {
     const newsDetails = document.getElementById('news-details');
     newsDetails.innerHTML = ` 
     <img  src="${details.thumbnail_url}" class="w-full">
+    <h2 class="text-2xl font-semibold">${details.title}</h2>
+    <p class="font-semibold mb-2 mt-2">Name: ${details.author.name ? details.author.name : "No Name"}</p>
+    <p class="font-semibold mb-2">Date: ${details.author.published_date ? details.author.published_date : "No Date"}</p>
     <p>${details.details}</p>
     `;
 }
 catagoryDetailsModal();
+
+// spinner
+const toggleSpinner = isLoading => {
+    const loadingSpinner = document.getElementById('loader');
+    if (isLoading) {
+        loadingSpinner.classList.remove('hidden');
+    } else {
+        loadingSpinner.classList.add('hidden');
+    }
+}
 
 
 
