@@ -1,25 +1,27 @@
 const loadCatagory = async () => {
     try {
-        const res = await fetch(` https://openapi.programming-hero.com/api/news/categories`)
+        const res = await fetch(`https://openapi.programming-hero.com/api/news/categories`)
         const data = await res.json()
-        return data;
+        displayAllCatagory(data.data.news_category);
     }
     catch (error) {
         console.log(error);
     }
 }
-const setCatagory = async () => {
-    const data = await loadCatagory();
-    const catagorysArray = data.data.news_category;
 
-    const allCatagory = document.getElementById("all-catagory");
-    for (const catagory of catagorysArray) {
-        // console.log(catagory.category_name)
+const displayAllCatagory = catagorys => {
+
+    const catagoryList = document.getElementById("all-catagory");
+    catagorys.forEach(catagory => {
+        console.log(catagory)
         const li = document.createElement("li");
-        li.innerHTML = `<a>${catagory.category_name}</a></li>`;
-        allCatagory.appendChild(li);
-    }
+        li.innerHTML = `<a>${catagory.category_name}</a>`;
+        catagoryList.appendChild(li);
+    })
 }
-setCatagory();
+loadCatagory();
 
+const loadCatagoryDetails = async () => {
+
+}
 
