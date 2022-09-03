@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Blog</title>
+    <!-- daisyUI & telwind link  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="w-11/12 mx-auto">
+    <header>
+        <div class="navbar bg-base-100 mb-5 mt-5">
+            <div class="flex-1">
+                <a class="btn btn-ghost normal-case text-2xl text-primary font-bold">News Outlet</a>
+            </div>
+            <div class="flex-none">
+                <ul class="menu menu-horizontal p-0">
+                    <li><a href="index.html">News</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html">Update</a></li>
+                </ul>
+            </div>
+            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                <div class="w-10 rounded-full">
+                    <img src="images/robin.jpg" />
+                </div>
+            </label>
+        </div>
+        <hr>
+    </header>
+    <main>
+        <section>
+            <div>
+                <div class="shadow mb-5 p-4">
+                    <h3 class="text-3xl mb-3">1. What are the difference among the var let and const?</h3>
+                    <p>There are three keywords in JavaScript that can be used to declare variables: let, var, and
+                        const. Each keyword has different rules and implications for how the variables they create can
+                        be used. <br>
+
+                        <b> let:</b> The let keyword declares a block-scoped local variable, optionally initializing it
+                        to a
+                        value.
+                        Block-scoped means that the variable is only available within the block it was declared in,
+                        which is usually denoted by curly braces {}. <br>
+
+                        <b> var:</b> The var keyword declares a function-scoped or global variable, optionally
+                        initializing it
+                        to a value.
+                        Function-scoped means that the variable is only available within the function it was declared
+                        in. Global variables are available throughout your entire code. <br>
+
+                        <b>const:</b> The const keyword declares a block-scoped, immutable constant variable, i.e. a
+                        variable
+                        that can’t be reassigned.
+                        Constants are also called “immutable variables”, but that’s a bit of a misnomer since they are
+                        actually variables – just ones that can’t be reassigned.
+                    </p>
+                </div>
+                <div class="shadow mb-5 p-4">
+                    <h3 class="text-3xl mb-3">2. What are the difference between arrow function and regular function?
+                    </h3>
+                    <p>Regular functions created using function declarations or expressions are constructible and
+                        callable. Since regular functions are constructible, they can be called using the new keyword.
+                        However, the arrow functions are only callable and not constructible, i.e arrow functions can
+                        never be used as constructor functions.Regular functions created using function declarations or
+                        expressions are constructible and callable. Since regular functions are constructible, they can
+                        be called using the new keyword. However, the arrow functions are only callable and not
+                        constructible. Thus, we will get a run-time error on trying to construct a non-constructible
+                        arrow functions using the new keyword.</p>
+                </div>
+                <div class="shadow mb-5 p-4">
+                    <h3 class="text-3xl mb-3">3. what are the difference among the map, foreach, filter and find?</h3>
+                    <p>Array functions are something that can help you with any type of manipulation or looping through
+                        an array of items in JavaScript. Function .forEach() is another form of just a plain for loop
+                        that can be used to iterate through array items. This case of a function is used for more
+                        complex arrays, for example, an array of objects with a lot of entries than just an array of
+                        integers.Function .map() is a manipulative function that can modify each element’s content in an
+                        array that it is called on. This function returns a new array with modified values, the array
+                        that it is called on will stay still. Function .filter() is a search function that returns all
+                        the elements that fulfil the assigned condition.Function .find() is also a search function like
+                        the previous but they differ in one small detail — this function returns only one match in an
+                        array.</p>
+                </div>
+                <div class="shadow mb-5 p-4">
+                    <h3 class="text-3xl mb-3">4. Why should you used template string?</h3>
+                    <p>Template strings are a powerful feature of modern JavaScript released in ES6. It lets us
+                        insert/interpolate variables and expressions into strings without needing to concatenate like in
+                        older versions of JavaScript. It allows us to create strings that are complex and contain
+                        dynamic elements. Another great thing that comes with template strings are tags. Tags are
+                        functions that take a string and the decomposed parts of the string as parameters and are great
+                        for converting strings to different entities.Template literals are literals delimited with
+                        backtick (`) characters, allowing for multi-line strings, for string interpolation with embedded
+                        expressions, and for special constructs called tagged templates.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>
