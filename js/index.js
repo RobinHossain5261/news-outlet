@@ -28,8 +28,16 @@ const loadCatagoryDetails = async (id) => {
     displayCatagoryDetails(data.data)
     // console.log(data.data);
 }
-
+//sort part
 const displayCatagoryDetails = allNews => {
+    allNews.sort((a, b) => {
+        return b.total_view - a.total_view
+    });
+    // ------length-------
+    const categoryLength = document.getElementById('category-quantity');
+    categoryLength.innerText = allNews.length === 0 ? "No result found" : allNews.length;
+
+
     // console.log(allNews)
     const catagoryDetails = document.getElementById("category-details");
     catagoryDetails.textContent = '';
@@ -76,7 +84,7 @@ const displayCatagoryDetails = allNews => {
     })
 }
 
-loadCatagoryDetails();
+loadCatagoryDetails('01');
 
 
 //modal part
