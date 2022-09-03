@@ -16,6 +16,7 @@ const displayAllCatagory = catagorys => {
     catagorys.forEach(catagory => {
         // console.log(catagory)
         const li = document.createElement("li");
+
         li.innerHTML = `<a onclick="loadCatagoryDetails('${catagory.category_id}')">${catagory.category_name}</a>`;
         catagoryList.appendChild(li);
     })
@@ -45,18 +46,18 @@ const displayCatagoryDetails = allNews => {
         // console.log(news)
         const newsDiv = document.createElement("div");
         newsDiv.innerHTML = `
-        <div class="flex ">
+        <div class="flex items-center">
                 <!-- images -->
-            <div class="flex-none w-96 mt-8">
+            <div class="flex-none w-96 mt-8 ">
                 <img src="${news.thumbnail_url}">
             </div>
 
                 <!-- cetagory-details  -->
             <div class="grow ml-5">
                 <h2 class="text-2xl font-semibold">${news.title}</h2>
-                <p>${news.details.length > 700 ? news.details.slice(0, 700) + '...' : news.details}</p>
-                <div class="flex flex-row  mt-16 justify-between">
-                    <div class="flex">
+                <p>${news.details.length > 500 ? news.details.slice(0, 500) + '...' : news.details}</p>
+                <div class="flex flex-row  mt-16 justify-between items-center">
+                    <div class="flex ">
                         <img class="h-12 w-12 rounded-full" src="${news.author.img}">
                         <div class="ml-5">
                             <p>${news.author.name ? news.author.name : "No Name"}</p>
@@ -71,7 +72,7 @@ const displayCatagoryDetails = allNews => {
                         <p class="ml-5">${news.rating.badge}</p>
                     </div>
                     <div>
-                    <label onclick="catagoryDetailsModal('${news._id}')" for="my-modal-3" class="btn modal-button">Show Details</label>
+                    <label onclick="catagoryDetailsModal('${news._id}')" for="my-modal-3" class="btn modal-button bg-primary">Show Details</label>
                     </div>
                 </div>
             </div>
