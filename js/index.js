@@ -13,6 +13,7 @@ const displayAllCatagory = catagorys => {
 
     const catagoryList = document.getElementById("all-catagory");
     catagoryList.textContent = '';
+    toggleSpinner(true);
     catagorys.forEach(catagory => {
         // console.log(catagory)
         const li = document.createElement("li");
@@ -63,7 +64,7 @@ const displayCatagoryDetails = allNews => {
                         <p class="ml-5">${news.rating.badge}</p>
                     </div>
                     <div>
-                    <label for="my-modal-3" class="btn modal-button">Show Details</label>
+                    <label onclick="catagoryDetailsModal('${news._id}')" for="my-modal-3" class="btn modal-button">Show Details</label>
                     </div>
                 </div>
             </div>
@@ -72,8 +73,35 @@ const displayCatagoryDetails = allNews => {
         
         `;
         catagoryDetails.appendChild(newsDiv);
+
     })
+    toggleSpinner(false);
 }
 
 loadCatagoryDetails();
+
+
+//modal part
+
+const catagoryDetailsModal = async (code) => {
+    try {
+        const res = await fetch(` https://openapi.programming-hero.com/api/news/${code}`)
+        const data = await res.json()
+        displayDetaulsModal(data.data[0])
+    }
+    catch (e) {
+        console.log(e);
+    }
+}
+
+const displayDetaulsModal = details => {
+    const newsDetails = document.getElementById('news-details');
+    newsDetails.innerHTML = ` 
+    <img  src="${details.thumbnail_url}" class="w-full">
+    <p>${details.details}</p>
+    `;
+}
+catagoryDetailsModal();
+
+
 
