@@ -13,7 +13,6 @@ const displayAllCatagory = catagorys => {
 
     const catagoryList = document.getElementById("all-catagory");
     catagoryList.textContent = '';
-    toggleSpinner(true);
     catagorys.forEach(catagory => {
         // console.log(catagory)
         const li = document.createElement("li");
@@ -75,7 +74,6 @@ const displayCatagoryDetails = allNews => {
         catagoryDetails.appendChild(newsDiv);
 
     })
-    toggleSpinner(false);
 }
 
 loadCatagoryDetails();
